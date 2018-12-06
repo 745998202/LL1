@@ -1,4 +1,5 @@
 from copy import deepcopy
+
 def kill_left_back(relize_words):#消除左递归，返回消除之后整理的函数
     new_relize_words = {}#用于返回的新的文法集
     for i in relize_words:#遍历每一个文法
@@ -79,4 +80,5 @@ if __name__ == '__main__':
     #==================得到FIRST集===================#
 
     #==================得到FOLLOW集==================#
+
     #==================生成预分析表格================#
