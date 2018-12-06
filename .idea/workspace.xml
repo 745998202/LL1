@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af1432e8-7626-4433-b132-88977633accf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/LL1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LL1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LL1.py" beforeDir="false" afterPath="$PROJECT_DIR$/LL1.py" afterDir="false" />
-    </list>
+    <list default="true" id="af1432e8-7626-4433-b132-88977633accf" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LL1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+            <state relative-caret-position="1638">
+              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
             </state>
           </provider>
         </entry>
@@ -130,12 +126,20 @@
       <option name="presentableId" value="Default" />
       <updated>1544079945496</updated>
       <workItem from="1544096949689" duration="616000" />
-      <workItem from="1544097571334" duration="543000" />
+      <workItem from="1544097571334" duration="849000" />
     </task>
+    <task id="LOCAL-00001" summary="清楚直接左递归">
+      <created>1544098167754</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1544098167754</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1159000" />
+    <option name="totallyTimeSpent" value="1465000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -151,7 +155,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.329718" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3546638" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3286334" />
@@ -165,6 +169,20 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="清楚直接左递归" />
+    <option name="LAST_COMMIT_MESSAGE" value="清楚直接左递归" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -180,8 +198,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/LL1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+        <state relative-caret-position="1638">
+          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
         </state>
       </provider>
     </entry>
