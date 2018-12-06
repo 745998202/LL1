@@ -54,13 +54,9 @@ def kill_left_back(relize_words):       #消除左递归，返回消除之后整
     return new_relize_words
 def get_first_list(relize_words):       #获得FIRST集
     if_changed = True                   #终止条件，如果这次没有改变First集合则推出循环
-    First = {}
-    for i in relize_words:
-        First[i] = []
     new_First = {}
     for i in relize_words:
         new_First[i] = []  # 创建新的First集合，继续第二次循环
-    print('初始的First集合为:',First)
     end_char_words = []
     for word in relize_words:
         end_char_words.append(word)
@@ -94,11 +90,59 @@ def get_first_list(relize_words):       #获得FIRST集
                                 new_First[end_char] = new_First[end_char] + help_trans_list
                                 if_changed = True
                             break
-        First = new_First
-    print('First集合为===========================#')
-    for i,j in First.items():
+    print('First集为===========================#')
+    for i,j in new_First.items():
         print('First(',i,'): ',j)
-def get_follow_list(relize_words):
+    return new_First
+def get_follow_list(relize_words,first_list):
+    if_change = True
+    new_Follow = {}
+    for i in relize_words:
+        new_Follow[i] = []
+    for i in relize_words:#初态添加$符号
+        new_Follow[i].append('$')
+        break
+    end_char_words = []
+    for word in relize_words:
+        end_char_words.append(word)
+    while if_change:
+        if_change = False
+        for end_char in relize_words:
+            for word in relize_words[end_char]:
+                for num in range(len(word)):
+                    if word[num] not in end_char_words:#是非终结符，跳到下一个
+                        continue
+                    else:#是终结符
+                        if num == len(word)-1:#当是最后一个的时候，将Follow(A) 添加到 Follow(B)中
+                            help_add = new_Follow[end_char][:]#获取Follow(A)的拷贝
+                            for one_add in help_add:
+                                if one_add not in new_Follow[word[num]]:
+                                    new_Follow[word[num]].append(one_add)
+                                    if_change = True
+                        else:#如果不是最后一个 1. 后面是终结符 2. 后面是非终结符
+                            if word[num+1] not in end_char_words:#后面是终结符
+                                if word[num+1] not in new_Follow[word[num]]:
+                                    new_Follow[word[num]].append(word[num+1])
+                                    if_change = True
+                            else:#后面是非终结符
+                                help_add = first_list[word[num+1]][:]#复制First(B)
+                                for one_add in help_add:
+                                    if one_add not in new_Follow[word[num]] and one_add != 'e':
+                                        new_Follow[word[num]].append(one_add)
+                                        if_change = True
+                                    elif one_add == 'e' and (num+1) == len(word)-1:
+                                        other_help_add = new_Follow[end_char][:]
+                                        for other_add in other_help_add:
+                                            if other_add not in new_Follow[word[num]]:
+                                                new_Follow[word[num]].append(other_add)
+                                                if_change = True
+    print('Follow集为===========================#')
+    for i,j in new_Follow.items():
+        print('Follow(',i,'): ',j)
+
+
+
+
 
 
 
@@ -126,8 +170,8 @@ if __name__ == '__main__':
     #==================消除左递归====================#
     relize_words = kill_left_back(relize_words)   # relize_words 消除左递归之后的文法
     #==================得到FIRST集===================#
-    get_first_list(relize_words)
+    first_list = get_first_list(relize_words)
     #==================得到FOLLOW集==================#
-
+    follow_list = get_follow_list(relize_words,first_list)
     #==================生成预分析表格================#
 
