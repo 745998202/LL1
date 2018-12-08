@@ -168,7 +168,6 @@ def get_relize_table(first_list,follow_list,relize_may_list,relize_words):#ä¼ å…
     for i in relize_table:
         for j in relize_may_list:
             relize_table[i][j] = 'error'
-    print('begin relize_table is :', relize_table)
     for char in not_end_list:
         for one_char in first_list[char]:
             for string in relize_words[char]:
@@ -188,7 +187,6 @@ def get_relize_table(first_list,follow_list,relize_may_list,relize_words):#ä¼ å…
                         elif string[num] == one_char:
                             relize_table[char][one_char] = string
                             break
-    print('  ||',relize_may_list)
     for i , j in relize_table.items():
         print(i,'|| ',j)
 
