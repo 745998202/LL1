@@ -139,7 +139,58 @@ def get_follow_list(relize_words,first_list):
     print('Follow集为===========================#')
     for i,j in new_Follow.items():
         print('Follow(',i,'): ',j)
+    return new_Follow
 
+def get_relize_may_char(first_list,follow_list):#生成预分析表格中可能的符号：
+    return_list = ['$'] #先将终结符置入
+    for i ,j in first_list.items():
+        for one_char in j:
+            if one_char not in return_list and one_char != 'e':
+                return_list.append(one_char)
+    for i ,j in follow_list.items():
+        for one_char in j:
+            if one_char not in return_list and one_char != 'e':
+                return_list.append(one_char)
+    print('预分析表格可能的串为',return_list)
+    return return_list
+
+def get_relize_table(first_list,follow_list,relize_may_list,relize_words):#传入first集合和follow集合，生成预分析表格
+    #   参数说明：
+    #   1. first 集合 数据结构:{'S':['a','b','#'],'A':['b','s']}
+    #   2. follow集合 数据结构同上
+    #   3. 预测分析串的列  ['$','%','a','b'] 数据结构为一个数组
+    not_end_list = []
+    relize_table = {}
+    for i in first_list:#获得预分析表格的行
+        if i not in not_end_list:
+            not_end_list.append(i)
+            relize_table[i] = {}
+    for i in relize_table:
+        for j in relize_may_list:
+            relize_table[i][j] = 'error'
+    print('begin relize_table is :', relize_table)
+    for char in not_end_list:
+        for one_char in first_list[char]:
+            for string in relize_words[char]:
+                if string == 'e':#当first集合含有空的时候
+                    for follow_char in follow_list[char]:
+                        relize_table[char][follow_char] = 'e'
+                elif string[0] == one_char:
+                    relize_table[char][one_char] = string
+                elif string[0] in not_end_list:
+                    for num in range(len(string)):
+                        if string[num] in not_end_list:
+                            if one_char in first_list[string[num]]:
+                                relize_table[char][one_char] = string
+                                break
+                            elif 'e' in first_list[string[num]]:
+                                continue
+                        elif string[num] == one_char:
+                            relize_table[char][one_char] = string
+                            break
+    print('  ||',relize_may_list)
+    for i , j in relize_table.items():
+        print(i,'|| ',j)
 
 
 
@@ -173,5 +224,7 @@ if __name__ == '__main__':
     first_list = get_first_list(relize_words)
     #==================得到FOLLOW集==================#
     follow_list = get_follow_list(relize_words,first_list)
-    #==================生成预分析表格================#
-
+    #==================获得可能的预分析表格串==========#
+    relize_may_char = get_relize_may_char(first_list,follow_list)
+    #==================生成预分析表格=================#
+    get_relize_table(first_list,follow_list,relize_may_char,relize_words)
