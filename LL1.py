@@ -192,24 +192,6 @@ def get_relize_table(first_list,follow_list,relize_may_list,relize_words):#传�
     for i , j in relize_table.items():
         print(i,'|| ',j)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
     relize_num = int(input('请输入你的文法个数'))
     relize_words = []
